@@ -1,6 +1,7 @@
 'use client';
 
-import { useFormState, useFormStatus } from 'react-dom';
+import { useActionState } from 'react';
+import { useFormStatus } from 'react-dom';
 import Link from 'next/link';
 import { Mail, User } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -9,7 +10,7 @@ import { Label } from '@/components/ui/label';
 import { signIn } from '@/lib/actions';
 
 export function SignInForm() {
-  const [state, dispatch] = useFormState(signIn, undefined);
+  const [state, dispatch] = useActionState(signIn, undefined);
 
   return (
     <form action={dispatch} className="space-y-4">

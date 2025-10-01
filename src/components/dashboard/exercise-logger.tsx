@@ -1,7 +1,7 @@
 'use client';
 
-import { useEffect, useState, useRef } from 'react';
-import { useFormState, useFormStatus } from 'react-dom';
+import { useEffect, useState, useRef, useActionState } from 'react';
+import { useFormStatus } from 'react-dom';
 import { PlusCircle, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
@@ -28,7 +28,7 @@ import {
 
 export function ExerciseLogger({ uniqueExercises }: { uniqueExercises: string[] }) {
   const [isOpen, setIsOpen] = useState(false);
-  const [state, formAction] = useFormState(logExercise, undefined);
+  const [state, formAction] = useActionState(logExercise, undefined);
   const { toast } = useToast();
   const formRef = useRef<HTMLFormElement>(null);
   const [exerciseName, setExerciseName] = useState('');
